@@ -14,7 +14,6 @@ const refs = {
     btnStop: document.querySelector('button[data-action = "stop"]'),
 }
 
-const INTERVAL_DELAY = 1000;
 let intervalId = null;
 
 refs.btnStart.addEventListener('click', changeColor);
@@ -24,14 +23,14 @@ const randomIntegerFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-function changeColor() {
-    intervalId = setInterval(() => {
-        refs.body.style.backgroundColor = colors[randomIntegerFromInterval(0, colors.length - 1)];
-    }, INTERVAL_DELAY);
-    refs.btnStart.disabled = true;
-};
+    function changeColor() {
+        intervalId = setInterval(() => {
+            refs.body.style.backgroundColor = colors[randomIntegerFromInterval(0, colors.length - 1)];
+        }, 1000);
+        refs.btnStart.disabled = true;
+    };
 
-function onBtnStop() {
-    clearInterval(intervalId);
-    refs.btnStart.disabled = false;
-}
+    function onBtnStop() {
+        clearInterval(intervalId);
+        refs.btnStart.disabled = false;
+    }
